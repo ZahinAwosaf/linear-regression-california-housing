@@ -22,3 +22,27 @@ This dataset was chosen because it is a standard regression benchmark with multi
    * Batch Gradient Descent
 5. Trained a scikit-learn LinearRegression model using the same training and testing data.
 6. Compared coefficients, predictions, and evaluation metrics to validate the NumPy implementation.
+
+## Results
+
+
+
+## Validation Against scikit-learn
+
+### Coefficient Comparison
+
+The learned intercepts were almost identical:
+* **NumPy**: 2.071857
+* **Scikit-learn**: 2.071947
+
+Most feature coefficients were also reasonably close. Small differences are expected because the NumPy implementation uses iterative gradient descent, whereas scikit-learn computes the exact least-squares solution. The largest differences occurred in the final two coefficients, suggesting that additional iterations or a different learning rate could move the gradient descent solution closer to the optimum.
+
+Prediction performance was also similar:
+
+* **NumPy MSE**: 0.5672
+* **Scikit-learn MSE**: 0.5559
+* **Difference**: 0.0113
+
+### Gradient Descent Convergence
+
+The cost decreases rapidly during the first iterations before gradually leveling off, indicating that gradient descent converged successfully.
