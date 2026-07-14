@@ -46,3 +46,4 @@ Prediction performance was also similar:
 ### Gradient Descent Convergence
 
 The cost decreases rapidly during the first iterations before gradually leveling off, indicating that gradient descent converged successfully.
+/assets/gradient-descent-convergence.png
