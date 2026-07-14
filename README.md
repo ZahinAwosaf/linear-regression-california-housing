@@ -25,7 +25,12 @@ This dataset was chosen because it is a standard regression benchmark with multi
 
 ## Results
 
+| Model | R² | MAE | RMSE | MSE |
+|---|---:|---:|---:|---:|
+| NumPy Gradient Descent | 0.5672 | 0.5477 | 0.7531 | 0.5672 |
+| Scikit-learn LinearRegression | 0.5758 | 0.5332 | 0.7456 | 0.5559 |
 
+The NumPy implementation achieved results close to scikit-learn's LinearRegression model. The small difference is expected because gradient descent is an iterative optimization method, while scikit-learn computes the least-squares solution directly.
 
 ## Validation Against scikit-learn
 
@@ -43,14 +48,36 @@ Prediction performance was also similar:
 * **Scikit-learn MSE**: 0.5559
 * **Difference**: 0.0113
 
-### Gradient Descent Convergence
+## Gradient Descent Convergence
 
 The cost decreases rapidly during the first iterations before gradually leveling off, indicating that gradient descent converged successfully.
 
 ![Gradient Descent Convergence](/assets/gradient-descent-convergence.png)
 
-### Learning Rate Comparison
+## Learning Rate Comparison
 
 A learning rate of 0.001 converged slowly, while 0.01 and 0.1 converged much faster. For this dataset, 0.1 reached the minimum cost in the fewest iterations without diverging.
 
 ![Learning Rate Comparison](/assets/learning-rate-comparison.png)
+
+## Residual Analysis
+
+The residuals are centered around zero, indicating little overall prediction bias. However, they are not completely random and show a fan-shaped pattern, suggesting some heteroscedasticity. A few outliers are also present, indicating larger prediction errors for some observations.
+
+![Residual Analysis](/assets/residual-plot.png)
+
+## Metric Interpretation
+
+* R² measures how much of the variation in house values is explained by the model. Higher values indicate a better fit.
+* MAE is the average absolute prediction error. Lower values indicate more accurate predictions.
+* RMSE measures the average prediction error while giving greater weight to larger errors. Lower values indicate better performance.
+
+## Future Improvements
+
+If this project were extended, I would:
+
+* Tune the learning rate and number of gradient descent iterations to further reduce the gap with scikit-learn.
+* Implement mini-batch and stochastic gradient descent for faster optimization.
+* Add regularization (Ridge and Lasso) to reduce overfitting.
+* Explore polynomial features or more advanced regression models to better capture non-linear relationships in the California Housing dataset.
+
