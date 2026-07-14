@@ -47,4 +47,10 @@ Prediction performance was also similar:
 
 The cost decreases rapidly during the first iterations before gradually leveling off, indicating that gradient descent converged successfully.
 
-!(/assets/gradient-descent-convergence.png)
+![Gradient Descent Convergence](/assets/gradient-descent-convergence.png)
+
+### Learning Rate Comparison
+
+A learning rate of 0.001 converged slowly, while 0.01 and 0.1 converged much faster. For this dataset, 0.1 reached the minimum cost in the fewest iterations without diverging.
+
+![Learning Rate Comparison](/assets/learning-rate-comparison.png)
